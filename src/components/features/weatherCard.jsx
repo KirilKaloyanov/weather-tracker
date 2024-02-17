@@ -5,6 +5,7 @@ function WeatherCard({ weatherInfo }) {
   return (
     <>
       <div>{updatedTime.toISOString().replace("T", " ").slice(0, -5)}</div>
+
       <div>{weatherInfo.weatherText}</div>
       <img
         src={`https://developer.accuweather.com/sites/default/files/${
@@ -13,24 +14,6 @@ function WeatherCard({ weatherInfo }) {
             : weatherInfo.weatherIcon
         }-s.png`}
       />
-      <div>Температура: {weatherInfo.temperature.metric.value}&deg; C</div>
-      <div>
-        Усеща се като: {weatherInfo.realFeelTemperature.metric.value}&deg; C
-      </div>
-      <div>
-        Усещане на сянка: {weatherInfo.realFeelTemperatureShade.metric.value}
-        &deg; C
-      </div>
-      <div>
-        Минимална t&deg;:{" "}
-        {weatherInfo.temperatureSummary.past24HourRange.minimum.metric.value}
-        &deg; C
-      </div>
-      <div>
-        Максимална t&deg;:{" "}
-        {weatherInfo.temperatureSummary.past24HourRange.maximum.metric.value}
-        &deg; C
-      </div>
       <div>Облачна покривка: {weatherInfo.cloudCover} %</div>
       {weatherInfo.hasPrecipitation ? (
         <div>
@@ -44,6 +27,25 @@ function WeatherCard({ weatherInfo }) {
       <div>
         Валеж (24 часа):{" "}
         {weatherInfo.precipitationSummary.past24Hours.metric.value} мм
+      </div>
+      <div>
+        Минимална t&deg;:{" "}
+        {weatherInfo.temperatureSummary.past24HourRange.minimum.metric.value}
+        &deg; C
+      </div>
+      <div>
+        Максимална t&deg;:{" "}
+        {weatherInfo.temperatureSummary.past24HourRange.maximum.metric.value}
+        &deg; C
+      </div>
+
+      <div>Температура: {weatherInfo.temperature.metric.value}&deg; C</div>
+      <div>
+        Усеща се като: {weatherInfo.realFeelTemperature.metric.value}&deg; C
+      </div>
+      <div>
+        Усещане на сянка: {weatherInfo.realFeelTemperatureShade.metric.value}
+        &deg; C
       </div>
       <div>Вятър: {weatherInfo.wind.speed.metric.value} км/ч</div>
       <div>Пориви: {weatherInfo.windGust.speed.metric.value} км/ч</div>
