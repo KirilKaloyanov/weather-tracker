@@ -21,7 +21,7 @@ function App() {
   if (data)
     return (
       <>
-        {data.map((x) => (
+        {data.reverse().map((x) => (
           <WeatherCard key={x._id} weatherInfo={x} />
         ))}
       </>
