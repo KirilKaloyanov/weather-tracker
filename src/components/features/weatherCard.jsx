@@ -2,8 +2,14 @@ function WeatherCard({ weatherInfo }) {
   const updatedTime = new Date(weatherInfo.localObservationDateTime);
   updatedTime.setHours(updatedTime.getHours() + 2);
 
+  console.log(updatedTime.getHours());
+
   return (
-    <div className="card">
+    <div
+      className={`card ${
+        updatedTime.getHours() < 12 ? "blue" : "yellow"
+      }_shadow`}
+    >
       <div className="title">
         <img
           src={`https://developer.accuweather.com/sites/default/files/${

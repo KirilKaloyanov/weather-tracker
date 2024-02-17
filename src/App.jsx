@@ -9,10 +9,7 @@ function App() {
     queryFn: () => {
       return axios
         .get("https://weather-tracker-de4c4456558d.herokuapp.com")
-        .then((result) => {
-          console.log(result.data);
-          return result.data;
-        })
+        .then((result) => result.data)
         .catch((err) => console.log(err));
     },
   });
