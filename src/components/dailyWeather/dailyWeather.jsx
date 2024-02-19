@@ -23,7 +23,7 @@ function DailyWeather({ morning, noon, dayOfTheWeek }) {
       <center className="card">
         <strong>{dayOfWeek}</strong>
         <div>
-          {updatedTimeUTCplus2.toISOString().replace("T", " ").slice(0, -5)}
+          {updatedTimeUTCplus2.toISOString().replace("T", " ").slice(0, -13)}
           <br />
         </div>
       </center>

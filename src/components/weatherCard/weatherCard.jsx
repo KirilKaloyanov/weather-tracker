@@ -19,7 +19,12 @@ function WeatherCard({ weatherInfo }) {
               : weatherInfo.weatherIcon
           }-s.png`}
         />
-        <div>{weatherInfo.weatherText}</div>
+        <center>
+          <div>{weatherInfo.weatherText}</div>
+          <div>
+            {updatedTimeUTCplus2.toISOString().replace("T", " ").slice(11, -5)}
+          </div>
+        </center>
       </div>
       <div>Облачна покривка: {weatherInfo.cloudCover} %</div>
       {weatherInfo.hasPrecipitation ? (
