@@ -15,10 +15,17 @@ function DailyWeather({ morning, noon, dayOfTheWeek }) {
   ];
   const dayOfWeek = daysOfWeek[dayOfTheWeek];
 
+  const updatedTimeUTCplus2 = new Date(morning.localObservationDateTime);
+  updatedTimeUTCplus2.setHours(updatedTimeUTCplus2.getHours() + 2);
+
   return (
     <div className="shrink_zero">
       <center className="card">
         <strong>{dayOfWeek}</strong>
+        <div>
+          {updatedTimeUTCplus2.toISOString().replace("T", " ").slice(0, -5)}
+          <br />
+        </div>
       </center>
       {morning ? <WeatherCard weatherInfo={morning} /> : <div></div>}
       {noon ? <WeatherCard weatherInfo={noon} /> : <div></div>}

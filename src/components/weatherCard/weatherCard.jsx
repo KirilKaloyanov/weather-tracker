@@ -10,7 +10,7 @@ function WeatherCard({ weatherInfo }) {
         updatedTimeUTCplus2.getHours() < 12 ? "blue" : "yellow"
       }_shadow`}
     >
-      <div className="display_flex">
+      <div className="display_flex align_items_center">
         <img
           className="weather_icon"
           src={`https://developer.accuweather.com/sites/default/files/${
@@ -19,13 +19,7 @@ function WeatherCard({ weatherInfo }) {
               : weatherInfo.weatherIcon
           }-s.png`}
         />
-        <div>
-          <div>
-            {updatedTimeUTCplus2.toISOString().replace("T", " ").slice(0, -5)}
-            <br />
-            {weatherInfo.weatherText}
-          </div>
-        </div>
+        <div>{weatherInfo.weatherText}</div>
       </div>
       <div>Облачна покривка: {weatherInfo.cloudCover} %</div>
       {weatherInfo.hasPrecipitation ? (

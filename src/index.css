@@ -24,6 +24,11 @@ body {
   display: flex;
 }
 
+.align_items_center {
+  justify-content: center;
+  align-items: center;
+}
+
 .shrink_zero {
   flex-shrink: 0;
 }
