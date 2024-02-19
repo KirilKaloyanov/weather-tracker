@@ -27,3 +27,7 @@ body {
 .shrink_zero {
   flex-shrink: 0;
 }
+
+.overflow_x {
+  overflow-x: scroll;
+}
