@@ -19,7 +19,7 @@ function App() {
     return (
       <div className="display_flex overflow_x">
         {data.map((x) => (
-          <DailyWeather key={x.date} dailyWeather={x} />
+          <DailyWeather key={x.date} morning={x.morning} noon={x.noon} />
         ))}
       </div>
     );
