@@ -17,11 +17,19 @@ function App() {
   if (data) {
     console.log(data);
     return (
-      <div className="display_flex overflow_x">
-        {data.map((x) => (
-          <DailyWeather key={x.date} morning={x.morning} noon={x.noon} />
-        ))}
-      </div>
+      <>
+        <h1>Метеорологична станция Подем</h1>
+        <div className="display_flex overflow_x">
+          {data.map((x) => (
+            <DailyWeather
+              key={x.date}
+              morning={x.morning}
+              noon={x.noon}
+              dayOfTheWeek={x.dayOfTheWeek}
+            />
+          ))}
+        </div>
+      </>
     );
   }
 }
