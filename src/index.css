@@ -17,6 +17,12 @@ a:hover {
 }
 
 body {
-  max-width: 400px;
   margin: 0 auto;
+}
+.display_flex {
+  display: flex;
+}
+
+.flex_wrap {
+  flex-wrap: wrap;
 }

@@ -1,17 +1,18 @@
-function WeatherCard({ weatherInfo }) {
-  const updatedTime = new Date(weatherInfo.localObservationDateTime);
-  updatedTime.setHours(updatedTime.getHours() + 2);
+import "./weatherCard.css";
 
-  console.log(updatedTime.getHours());
+function WeatherCard({ weatherInfo }) {
+  const updatedTimeUTCplus2 = new Date(weatherInfo.localObservationDateTime);
+  updatedTimeUTCplus2.setHours(updatedTimeUTCplus2.getHours() + 2);
 
   return (
     <div
       className={`card ${
-        updatedTime.getHours() < 12 ? "blue" : "yellow"
+        updatedTimeUTCplus2.getHours() < 12 ? "blue" : "yellow"
       }_shadow`}
     >
-      <div className="title">
+      <div className="display_flex">
         <img
+          className="weather_icon"
           src={`https://developer.accuweather.com/sites/default/files/${
             weatherInfo.weatherIcon < 10
               ? "0" + weatherInfo.weatherIcon
@@ -20,7 +21,7 @@ function WeatherCard({ weatherInfo }) {
         />
         <div>
           <div>
-            {updatedTime.toISOString().replace("T", " ").slice(0, -5)}
+            {updatedTimeUTCplus2.toISOString().replace("T", " ").slice(0, -5)}
             <br />
             {weatherInfo.weatherText}
           </div>

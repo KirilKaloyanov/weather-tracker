@@ -1,28 +1,29 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import WeatherCard from "./components/features/weatherCard";
-import "./App.css";
+import DailyWeather from "./components/dailyWeather/dailyWeather.jsx";
 
 function App() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["data"],
     queryFn: () => {
       return axios
-        .get("https://weather-tracker-de4c4456558d.herokuapp.com")
+        .get("https://weather-tracker-de4c4456558d.herokuapp.com/lastTenDays")
         .then((result) => result.data)
         .catch((err) => console.log(err));
     },
   });
   if (isError) return <h1>Error</h1>;
   if (isLoading) return <h1>Loading</h1>;
-  if (data)
+  if (data) {
+    console.log(data);
     return (
-      <>
-        {data.reverse().map((x) => (
-          <WeatherCard key={x._id} weatherInfo={x} />
+      <div className="display_flex flex_wrap">
+        {data.map((x) => (
+          <DailyWeather key={x.date} dailyWeather={x} />
         ))}
-      </>
+      </div>
     );
+  }
 }
 
 export default App;
