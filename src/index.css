@@ -41,8 +41,10 @@ body {
 
 .shrink_zero {
   flex-shrink: 0;
+  scroll-snap-align: start;
 }
 
 .overflow_x {
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
 }
