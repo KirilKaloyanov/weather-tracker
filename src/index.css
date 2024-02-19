@@ -2,9 +2,6 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  /* 
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
 }
 
 a {
@@ -18,6 +15,19 @@ a:hover {
 
 body {
   margin: 0 auto;
+}
+
+.margin_0 {
+  margin: 0;
+}
+
+.padding_20 {
+  padding: 20px 0;
+}
+
+.dark_background {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 }
 
 .display_flex {

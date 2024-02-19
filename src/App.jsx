@@ -18,7 +18,7 @@ function App() {
     console.log(data);
     return (
       <>
-        <h1>
+        <h1 className="margin_0 padding_20 dark_background">
           <center>Метеорологична станция Подем</center>
         </h1>
         <div className="display_flex overflow_x">
