@@ -18,7 +18,9 @@ function App() {
     console.log(data);
     return (
       <>
-        <h1>Метеорологична станция Подем</h1>
+        <h1>
+          <center>Метеорологична станция Подем</center>
+        </h1>
         <div className="display_flex overflow_x">
           {data.map((x) => (
             <DailyWeather
