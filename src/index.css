@@ -19,10 +19,11 @@ a:hover {
 body {
   margin: 0 auto;
 }
+
 .display_flex {
   display: flex;
 }
 
-.flex_wrap {
-  flex-wrap: wrap;
+.shrink_zero {
+  flex-shrink: 0;
 }

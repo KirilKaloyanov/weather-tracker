@@ -5,7 +5,7 @@ function DailyWeather({ dailyWeather }) {
   console.log(dailyWeather);
 
   return (
-    <div>
+    <div className="shrink_zero">
       <WeatherCard weatherInfo={dailyWeather.morning} />
       {dailyWeather.noon ? (
         <WeatherCard weatherInfo={dailyWeather.noon} />

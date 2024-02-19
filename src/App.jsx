@@ -17,7 +17,7 @@ function App() {
   if (data) {
     console.log(data);
     return (
-      <div className="display_flex flex_wrap">
+      <div className="display_flex">
         {data.map((x) => (
           <DailyWeather key={x.date} dailyWeather={x} />
         ))}
