@@ -15,29 +15,26 @@ function App() {
     },
   });
 
-  const dashboardCardWidth = 350;
   const dashboardRef = useRef(null);
-  const [dashboardWindow, setDashboardWindow] = useState(null);
-  const [dashboardPositions, setDashboardPositions] = useState(null);
+  const [dashboardWindowWidth, setDashboardWindowWidth] = useState(null);
+  const [visibleCardsCount, setVisibleCardsCount] = useState(null);
   const [scrollLeftValue, setScrollLeftValue] = useState(0);
 
   useEffect(() => {
     if (dashboardRef.current && data.length) {
-      setDashboardPositions(
-        Math.floor(dashboardRef.current.clientWidth / dashboardCardWidth)
-      );
+      setVisibleCardsCount(Math.floor(dashboardRef.current.clientWidth / 350));
     }
   }, [data]);
 
   useEffect(() => {
-    if (dashboardPositions) {
-      setDashboardWindow({
+    if (visibleCardsCount) {
+      setDashboardWindowWidth({
         maxWidth: dashboardRef.current
-          ? dashboardPositions * dashboardCardWidth + "px"
+          ? visibleCardsCount * 350 + "px"
           : "auto",
       });
     }
-  }, [dashboardPositions]);
+  }, [visibleCardsCount]);
 
   const debouncedSetScrollLeftValue = useRef(
     debounce((scrollLeft) => setScrollLeftValue(scrollLeft), 100)
@@ -49,12 +46,20 @@ function App() {
       debouncedSetScrollLeftValue.current(scrollLeft);
     }
   }
-  console.log(scrollLeftValue);
+
+  function scroll(index) {
+    const updatedScroll = index * 350;
+    dashboardRef.current.scrollTo({
+      left: updatedScroll,
+      behavior: "smooth",
+    });
+    setScrollLeftValue(updatedScroll);
+  }
 
   if (isError) return <h1>Error</h1>;
   if (isLoading) return <h1>Loading</h1>;
   if (data) {
-    const navigationDotsCount = data.length - dashboardPositions + 1;
+    const navigationDotsCount = data.length - visibleCardsCount + 1;
 
     const spanArray = Array.from({ length: navigationDotsCount });
     return (
@@ -67,13 +72,10 @@ function App() {
             ? spanArray.map((sp, index) => (
                 <div
                   key={index}
-                  className={
-                    scrollLeftValue == 0
-                      ? "one"
-                      : scrollLeftValue < 350
-                      ? "two"
-                      : ""
-                  }
+                  className={`border ${
+                    scrollLeftValue == index * 350 ? "filled_dot" : "empty_dot"
+                  }`}
+                  onClick={() => scroll(index)}
                 ></div>
               ))
             : null}
@@ -82,7 +84,7 @@ function App() {
         <div
           ref={dashboardRef}
           className="display_flex overflow_x margin_0"
-          style={dashboardWindow}
+          style={dashboardWindowWidth}
           onScroll={onScroll}
         >
           {data.map((x) => (

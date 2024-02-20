@@ -69,10 +69,14 @@ footer {
   margin: 20px;
 }
 
-.one {
+.border {
+  border: 4px solid black;
+}
+
+.filled_dot {
   background-color: black;
 }
 
-.two {
-  background-color: red;
+.empty_dot {
+  background-color: white;
 }
