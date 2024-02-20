@@ -23,7 +23,7 @@ function App() {
 
       setDashboardWindow({
         maxWidth: dashboardRef.current
-          ? Math.floor(dashboardWidth / 340) * 340 + "px"
+          ? Math.floor(dashboardWidth / 345) * 345 + "px"
           : "auto",
       });
     }
