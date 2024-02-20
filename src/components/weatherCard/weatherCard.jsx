@@ -20,10 +20,10 @@ function WeatherCard({ weatherInfo }) {
           }-s.png`}
         />
         <center>
-          <div>{weatherInfo.weatherText}</div>
           <div>
             {updatedTimeUTCplus2.toISOString().replace("T", " ").slice(11, -5)}
           </div>
+          <div>{weatherInfo.weatherText}</div>
         </center>
       </div>
       <div>Облачна покривка: {weatherInfo.cloudCover} %</div>

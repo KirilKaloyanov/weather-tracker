@@ -34,7 +34,7 @@ function App() {
   if (data) {
     // console.log(data);
     return (
-      <center>
+      <>
         <h1 className="margin_0 padding_20 dark_background">
           <center>Метеорологична станция Подем</center>
         </h1>
@@ -52,8 +52,10 @@ function App() {
             />
           ))}
         </div>
-        <footer className="padding_20 dark_background">Cosmos webstudio</footer>
-      </center>
+        <footer className="padding_20 dark_background">
+          <center>Cosmos webstudio</center>
+        </footer>
+      </>
     );
   }
 }

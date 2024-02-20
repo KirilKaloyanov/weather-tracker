@@ -10,11 +10,11 @@
 }
 
 .blue_shadow {
-  box-shadow: 0px 5px 25px rgb(97, 120, 163);
+  box-shadow: 0px 5px 15px rgb(97, 120, 163);
 }
 
 .yellow_shadow {
-  box-shadow: 0px 5px 25px rgb(185, 165, 74);
+  box-shadow: 0px 5px 15px rgb(185, 165, 74);
 }
 
 .weather_icon {

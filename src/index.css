@@ -48,4 +48,5 @@ body {
 .overflow_x {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  margin: 0px auto;
 }
