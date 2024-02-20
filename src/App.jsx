@@ -98,7 +98,7 @@ function App() {
 
         <NaviDots
           navigationDotsCount={navigationDotsCount}
-          onScroll={scrollToIndex}
+          scrollToIndex={scrollToIndex}
           scrollLeftValue={leftScrollValue}
         />
 
