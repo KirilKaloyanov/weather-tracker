@@ -19,7 +19,7 @@ function DailyWeather({ morning, noon, dayOfTheWeek }) {
   updatedTimeUTCplus2.setHours(updatedTimeUTCplus2.getHours() + 2);
 
   return (
-    <div className="shrink_zero">
+    <div className="shrink_zero card_width">
       <center className="card">
         <strong>{dayOfWeek}</strong>
         <div>

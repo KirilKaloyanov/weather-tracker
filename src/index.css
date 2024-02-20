@@ -17,17 +17,18 @@ body {
   margin: 0 auto;
 }
 
+.dark_background {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  min-height: 80px;
+}
+
 .margin_0 {
   margin: 0;
 }
 
 .padding_20 {
   padding: 20px 0;
-}
-
-.dark_background {
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 }
 
 .display_flex {
