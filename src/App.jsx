@@ -8,20 +8,25 @@ import DailyWeather from "./components/dailyWeather/dailyWeather.jsx";
 import NaviDots from "./components/naviDots.jsx";
 
 function App() {
-  const dashboardRef = useRef(null);
-
-  const [dashboardWindowWidth, setDashboardWindowWidth] = useState(null);
-  const [visibleCardsCount, setVisibleCardsCount] = useState(null);
-  const [scrollLeftValue, setScrollLeftValue] = useState(0);
-
+  // Fetch data
   const { data, isLoading, isError } = useFetchWeather();
 
+  // Get a ref to the dashboard window which accommodates the data
+  const dashboardRef = useRef(null);
+
+  // Define how many cards can fit in the dashboard
+  // based on the width of the browser window
+  // each card is 350px
+  const [visibleCardsCount, setVisibleCardsCount] = useState(null);
   useEffect(() => {
     if (dashboardRef.current && data.length) {
       setVisibleCardsCount(Math.floor(dashboardRef.current.clientWidth / 350));
     }
   }, [data]);
 
+  // Narrow down the dashboard window to accommodate the number of cards
+  // which can fit
+  const [dashboardWindowWidth, setDashboardWindowWidth] = useState(null);
   useEffect(() => {
     if (visibleCardsCount) {
       setDashboardWindowWidth({
@@ -32,29 +37,37 @@ function App() {
     }
   }, [visibleCardsCount]);
 
-  const debouncedSetScrollLeftValue = useRef(
-    debounce((scrollLeft) => setScrollLeftValue(scrollLeft), 300)
-  );
+  // Initialize the left scroll to 0
+  const [leftScrollValue, setLeftScrollValue] = useState(0);
 
-  function onScroll() {
+  // Trigger scroll when user clicks on NaviDots
+  function scrollToIndex(index) {
+    const updatedScroll = index * 350;
+    dashboardRef.current.scrollTo({
+      left: updatedScroll,
+      behavior: "smooth",
+    });
+    setLeftScrollValue(updatedScroll);
+  }
+
+  // Listen for user scrolling and update the left scroll value
+  function handleScroll() {
     if (dashboardRef.current) {
       const scrollLeft = dashboardRef.current.scrollLeft;
       debouncedSetScrollLeftValue.current(scrollLeft);
     }
   }
 
-  function scroll(index) {
-    const updatedScroll = index * 350;
-    dashboardRef.current.scrollTo({
-      left: updatedScroll,
-      behavior: "smooth",
-    });
-    setScrollLeftValue(updatedScroll);
-  }
+  // Helper function to limit function calls while scrolilng
+  const debouncedSetScrollLeftValue = useRef(
+    debounce((scrollLeft) => setLeftScrollValue(scrollLeft), 300)
+  );
 
   if (isError) return <h1>Error</h1>;
   if (isLoading) return <h1>Loading</h1>;
   if (data) {
+    // The count of dots
+    const navigationDotsCount = data.length - visibleCardsCount + 1;
     return (
       <>
         <h1 className="margin_0 padding_20 dark_background">
@@ -62,16 +75,16 @@ function App() {
         </h1>
 
         <NaviDots
-          navigationDotsCount={data.length - visibleCardsCount + 1}
-          onScroll={(index) => scroll(index)}
-          scrollLeftValue={scrollLeftValue}
+          navigationDotsCount={navigationDotsCount}
+          scrollToIndex={scrollToIndex}
+          scrollLeftValue={leftScrollValue}
         />
 
         <div
           ref={dashboardRef}
           className="display_flex overflow_x margin_0"
           style={dashboardWindowWidth}
-          onScroll={onScroll}
+          onScroll={handleScroll}
         >
           {data.map((x) => (
             <DailyWeather
@@ -84,9 +97,9 @@ function App() {
         </div>
 
         <NaviDots
-          navigationDotsCount={data.length - visibleCardsCount + 1}
-          onScroll={(index) => scroll(index)}
-          scrollLeftValue={scrollLeftValue}
+          navigationDotsCount={navigationDotsCount}
+          onScroll={scrollToIndex}
+          scrollLeftValue={leftScrollValue}
         />
 
         <footer className="padding_20 dark_background">

@@ -1,4 +1,4 @@
-function NaviDots({ navigationDotsCount, onScroll, scrollLeftValue }) {
+function NaviDots({ navigationDotsCount, scrollToIndex, scrollLeftValue }) {
   const spanArray = Array.from({ length: navigationDotsCount });
   return (
     <div className="navigation_dots">
@@ -9,7 +9,7 @@ function NaviDots({ navigationDotsCount, onScroll, scrollLeftValue }) {
               className={`border ${
                 scrollLeftValue == index * 350 ? "filled_dot" : "empty_dot"
               }`}
-              onClick={() => onScroll(index)}
+              onClick={() => scrollToIndex(index)}
             ></div>
           ))
         : null}
