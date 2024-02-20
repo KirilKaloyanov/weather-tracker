@@ -2,6 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  --background-color: #242424;
 }
 
 a {
@@ -24,7 +25,7 @@ footer {
 
 .dark_background {
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--background-color);
   min-height: 80px;
 }
 
@@ -77,11 +78,11 @@ footer {
 }
 
 .border {
-  border: 3px solid black;
+  border: 3px solid var(--background-color);
 }
 
 .filled_dot {
-  background-color: black;
+  background-color: var(--background-color);
 }
 
 .empty_dot {
