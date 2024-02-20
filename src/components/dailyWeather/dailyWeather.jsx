@@ -9,7 +9,7 @@ function DailyWeather({ morning, noon, dayOfTheWeek }) {
     "Сряда",
     "Четвъртък",
     "Петък",
-    "Съобта",
+    "Събoта",
   ];
   const dayOfWeek = daysOfWeek[dayOfTheWeek];
 
