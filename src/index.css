@@ -15,6 +15,7 @@ a:hover {
 
 body {
   margin: 0 auto;
+  min-width: 350px;
 }
 
 footer {
@@ -28,7 +29,7 @@ footer {
 }
 
 .margin_0 {
-  margin: 0;
+  margin: 0 auto;
 }
 
 .padding_20 {
@@ -52,5 +53,26 @@ footer {
 .overflow_x {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  margin: 0px auto;
+}
+
+.navigation_dots {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.navigation_dots > div {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 19px;
+  margin: 20px;
+}
+
+.one {
+  background-color: black;
+}
+
+.two {
+  background-color: red;
 }
