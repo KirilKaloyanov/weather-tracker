@@ -55,6 +55,13 @@ footer {
   scroll-snap-type: x mandatory;
 }
 
+@media screen and (max-width: 650px) {
+  .overflow_x {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+}
+
 .navigation_dots {
   display: flex;
   margin-top: 20px;
