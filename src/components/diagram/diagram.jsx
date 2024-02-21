@@ -10,11 +10,11 @@ function Diagram({ data, windowWidth }) {
         <div className="y-axis"></div>
 
         <div className="t_bar t_bar_legend  t_noon" style={{ top: `210px` }}>
-          <div className="t_legend">t&deg;C, следобед</div>
+          <div className="t_legend">t&deg;C,&nbsp;следобед</div>
         </div>
 
         <div className="t_bar t_bar_legend t_morning" style={{ top: `230px` }}>
-          <div className="t_legend">t&deg;C, сутрин</div>
+          <div className="t_legend">t&deg;C&nbsp; сутрин</div>
         </div>
 
         {data.map((x, index) => {
