@@ -9,7 +9,7 @@ import NaviDots from "./components/naviDots.jsx";
 
 function App() {
   // Fetch data
-  const { data, isLoading, isError } = useFetchWeather();
+  const { data, isLoading, isError } = useFetchWeather("lastTenDays"); //lastTenDays
 
   // Get a ref to the dashboard window which accommodates the data
   const dashboardRef = useRef(null);
@@ -66,6 +66,7 @@ function App() {
   if (isError) return <h1>Error</h1>;
   if (isLoading) return <h1>Loading</h1>;
   if (data) {
+    console.log(data);
     // The count of dots
     const navigationDotsCount = data.length - visibleCardsCount + 1;
     return (
@@ -101,6 +102,11 @@ function App() {
           scrollToIndex={scrollToIndex}
           scrollLeftValue={leftScrollValue}
         />
+        <div class="diagram">
+          <div class="x-axis"></div>
+          <div class="y-axis"></div>
+          <div class="bar"></div>
+        </div>
 
         <footer className="padding_20 dark_background">
           <center>Cosmos webstudio</center>
