@@ -3,7 +3,8 @@ import { useState } from "react";
 import useFetchWeather from "./useFetch/useFetch.js";
 
 import Dashboard from "./components/dashboard.jsx";
-import Diagram from "./components/diagram/diagram.jsx";
+import PDiagram from "./components/diagram/pDiagram.jsx";
+import TDiagram from "./components/diagram/tDiagram.jsx";
 
 function App() {
   // Fetch data
@@ -23,7 +24,8 @@ function App() {
 
         <Dashboard data={data} windowWidthState={windowWidthState} />
 
-        <Diagram data={data} windowWidth={windowWidth} />
+        <TDiagram data={data} windowWidth={windowWidth} />
+        <PDiagram data={data} windowWidth={windowWidth} />
 
         <footer className="padding_20 dark_background">
           <center>Cosmos webstudio</center>

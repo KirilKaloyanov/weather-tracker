@@ -1,16 +1,16 @@
 import "./diagram.css";
 
-function Diagram({ data, windowWidth }) {
+function TDiagram({ data, windowWidth }) {
   console.log(data);
 
   const daysOfWeek = ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
   return (
     <>
-      <div className="temperature-diagram" style={windowWidth}>
+      <div className="diagram temperature-diagram" style={windowWidth}>
         <div className="x-axis"></div>
-        <div className="y-axis"></div>
+        <div className="y-axis y-axis-negative"></div>
 
-        <div className="t_bar t_bar_legend  t_noon" style={{ top: `210px` }}>
+        <div className="t_bar t_bar_legend t_noon" style={{ top: `210px` }}>
           <div className="t_legend">t&deg;C,&nbsp;следобед</div>
         </div>
 
@@ -57,10 +57,7 @@ function Diagram({ data, windowWidth }) {
                   position: "absolute",
                 }}
               >
-                <center>
-                  {daysOfWeek[x.dayOfTheWeek]}
-                  <br /> {x.date.slice(5, 10)}
-                </center>
+                <center>{daysOfWeek[x.dayOfTheWeek]}</center>
               </div>
             </div>
           );
@@ -70,4 +67,4 @@ function Diagram({ data, windowWidth }) {
   );
 }
 
-export default Diagram;
+export default TDiagram;

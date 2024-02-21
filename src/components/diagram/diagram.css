@@ -1,13 +1,20 @@
 /***DIAGRAM***/
 
-.temperature-diagram {
+.diagram {
   position: relative;
   z-index: -1;
-  height: 600px; /* Adjust height as needed */
-  margin: -150px auto 250px auto;
   left: 5px;
 }
 
+.temperature-diagram {
+  margin: -150px auto 250px auto;
+  height: 600px; /* Adjust height as needed */
+}
+
+.precipitaion-diagram {
+  margin: 50px auto 250px auto;
+  height: 400px;
+}
 .x-axis {
   position: absolute;
   bottom: 0;
@@ -19,24 +26,18 @@
 
 .y-axis {
   position: absolute;
-  top: 200px;
-  /*left: 0; */
   width: 1px;
   height: 100%;
   background-color: black;
 }
 
+.y-axis-negative {
+  top: 200px;
+}
+
 .diagram-title {
   position: absolute;
   left: 10px;
-}
-
-.dt-morning {
-  top: 230px;
-}
-
-.dt-noon {
-  top: 730px;
 }
 
 .t_bar {
@@ -45,6 +46,13 @@
   width: 12px;
   height: 12px;
   border-radius: 12px;
+}
+
+.p_stick {
+  position: absolute;
+  right: 10px;
+  width: 12px;
+  bottom: 0;
 }
 
 .t_bar_legend {
