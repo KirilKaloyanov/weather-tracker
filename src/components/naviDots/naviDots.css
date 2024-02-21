@@ -1,0 +1,47 @@
+.navigation_dots {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.dot {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 19px;
+  margin: 2px;
+}
+
+.border {
+  border: 3px solid var(--verydark-color);
+}
+
+.filled_dot {
+  background-color: var(--verydark-color);
+}
+
+.empty_dot {
+  background-color: white;
+}
+
+.arrow {
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  margin: 7px 12px;
+}
+
+.left {
+  border-left: 0;
+  border-top: 10px solid transparent;
+  border-right: 15px solid var(--verydark-color);
+  border-bottom: 10px solid transparent;
+}
+
+.right {
+  border-right: 0;
+  border-top: 10px solid transparent;
+  border-left: 15px solid var(--verydark-color);
+  border-bottom: 10px solid transparent;
+}

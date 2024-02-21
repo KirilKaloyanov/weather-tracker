@@ -1,5 +1,4 @@
 import WeatherCard from "../weatherCard/weatherCard.jsx";
-import "./dailyWeather.css";
 
 function DailyWeather({ morning, noon, dayOfTheWeek }) {
   const daysOfWeek = [
