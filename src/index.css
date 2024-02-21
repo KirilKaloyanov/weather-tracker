@@ -52,15 +52,8 @@ footer {
 }
 
 .overflow_x {
-  overflow-x: hidden;
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
-}
-
-@media screen and (max-width: 650px) {
-  .overflow_x {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-  }
 }
 
 .navigation_dots {
@@ -69,12 +62,20 @@ footer {
   justify-content: center;
 }
 
-.navigation_dots > div {
+.dot {
   cursor: pointer;
   width: 25px;
   height: 25px;
   border-radius: 19px;
   margin: 2px;
+}
+
+@media screen and (max-width: 650px) {
+  .dot {
+    margin: 12px 2px;
+    width: 12px;
+    height: 12px;
+  }
 }
 
 .border {
@@ -88,3 +89,63 @@ footer {
 .empty_dot {
   background-color: white;
 }
+
+/* Example scrollbar styling for WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.arrow {
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  margin: 9px 15px;
+}
+
+.left {
+  border-left: 0;
+  border-top: 10px solid transparent;
+  border-right: 15px solid var(--background-color);
+  border-bottom: 10px solid transparent;
+}
+
+.right {
+  border-right: 0;
+  border-top: 10px solid transparent;
+  border-left: 15px solid var(--background-color);
+  border-bottom: 10px solid transparent;
+}
+
+/* .arrow::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid white;
+}
+
+.arrow::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: -20px; 
+  width: 0;
+  height: 0; 
+  border-top: 15px solid transparent;
+  border-right: 15px solid black;
+  border-bottom: 15px solid transparent;
+} 
+*/
