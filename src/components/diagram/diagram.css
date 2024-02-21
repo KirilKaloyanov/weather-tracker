@@ -5,6 +5,7 @@
   z-index: -1;
   height: 600px; /* Adjust height as needed */
   margin: -150px auto 250px auto;
+  left: 5px;
 }
 
 .x-axis {

@@ -29,11 +29,11 @@ function WeatherCard({ weatherInfo }) {
       <div>Облачна покривка: {weatherInfo.cloudCover} %</div>
       {weatherInfo.hasPrecipitation ? (
         <div>
-          Валеж: {weatherInfo.precipitationType}{" "}
-          {weatherInfo.precipitationSummary.precipitaion.metric.value}{" "}
-          {weatherInfo.precipitationSummary.past24Hours.metric.unitType}
-        </div>
+          Валеж: {weatherInfo.precipitationSummary.precipitation.metric.value}{" "}
+          {weatherInfo.precipitationSummary.precipitation.metric.unit}
+        </div> //precipitation
       ) : (
+        //precipitaion
         <div>Не вали</div>
       )}
       <div>

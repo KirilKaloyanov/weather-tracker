@@ -2,6 +2,7 @@ import "./diagram.css";
 
 function Diagram({ data, windowWidth }) {
   console.log(data);
+
   const daysOfWeek = ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
   return (
     <>
@@ -22,7 +23,6 @@ function Diagram({ data, windowWidth }) {
           return (
             <div key={x.id}>
               {x.morning && (
-                // {dot(x.morning.temperature.metric.value, xAxisOffsetFraction)};
                 <div
                   className="t_bar t_morning"
                   style={{
@@ -35,6 +35,7 @@ function Diagram({ data, windowWidth }) {
                   </span>
                 </div>
               )}
+
               {x.noon && (
                 <div
                   className="t_bar t_noon"
@@ -48,14 +49,18 @@ function Diagram({ data, windowWidth }) {
                   </span>
                 </div>
               )}
+
               <div
                 style={{
-                  left: `${xAxisOffsetFraction * 100}%`,
+                  left: `${xAxisOffsetFraction * 100 - 2}%`,
                   bottom: "-200px",
                   position: "absolute",
                 }}
               >
-                {daysOfWeek[x.dayOfTheWeek]}
+                <center>
+                  {daysOfWeek[x.dayOfTheWeek]}
+                  <br /> {x.date.slice(5, 10)}
+                </center>
               </div>
             </div>
           );

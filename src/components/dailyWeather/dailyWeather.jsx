@@ -12,12 +12,14 @@ function DailyWeather({ morning, noon, dayOfTheWeek }) {
   ];
   const dayOfWeek = daysOfWeek[dayOfTheWeek];
 
-  const updatedTimeUTCplus2 = new Date(morning.localObservationDateTime);
+  const updatedTimeUTCplus2 = new Date(
+    morning?.localObservationDateTime || noon?.localObservationDateTime
+  );
   updatedTimeUTCplus2.setHours(updatedTimeUTCplus2.getHours() + 2);
 
   return (
     <div className="shrink_zero card_width">
-      <center className="card">
+      <center>
         <strong>{dayOfWeek}</strong>
         <div>
           {updatedTimeUTCplus2.toISOString().replace("T", " ").slice(0, -13)}

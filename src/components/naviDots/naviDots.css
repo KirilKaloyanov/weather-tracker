@@ -1,6 +1,6 @@
 .navigation_dots {
   display: flex;
-  margin-top: 20px;
+  margin: 20px auto;
   justify-content: center;
 }
 
@@ -17,7 +17,8 @@
 }
 
 .filled_dot {
-  background-color: var(--verydark-color);
+  border-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 .empty_dot {

@@ -80,6 +80,11 @@ function Dashboard({ data, windowWidthState }) {
           />
         ))}
       </div>
+      <NaviDots
+        navigationStepsCount={data.length - visibleCardsCount + 1}
+        scrollToIndex={scrollToIndex}
+        scrollLeftValue={leftScrollValue}
+      />
     </>
   );
 }
