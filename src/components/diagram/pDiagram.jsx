@@ -1,8 +1,6 @@
 import "./diagram.css";
 
 function PDiagram({ data, windowWidth }) {
-  console.log(data);
-
   const daysOfWeek = ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
   return (
     <>
@@ -16,21 +14,25 @@ function PDiagram({ data, windowWidth }) {
 
         {data.map((x, index) => {
           const xAxisOffsetFraction = (index + 0.5) / data.length;
+          const value = x.morning.precipitationSummary.past24Hours.metric.value;
           return (
             <div key={x.id}>
               {x.morning && (
                 <div
                   className="p_stick t_morning"
                   style={{
-                    height: `${
-                      x.morning.precipitationSummary.past24Hours.metric.value *
-                      10
-                    }px`,
+                    height: `${value * 10}px`,
                     left: `${xAxisOffsetFraction * 100}%`,
                   }}
                 >
-                  <span className="t_label">
-                    {x.morning.precipitationSummary.past24Hours.metric.value}
+                  <span
+                    className="t_label"
+                    style={{
+                      height: `${(value + 1) * 10}px`,
+                      left: `${xAxisOffsetFraction * 100}%`,
+                    }}
+                  >
+                    {value}
                   </span>
                 </div>
               )}

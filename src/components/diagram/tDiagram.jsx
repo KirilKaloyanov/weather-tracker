@@ -1,8 +1,6 @@
 import "./diagram.css";
 
 function TDiagram({ data, windowWidth }) {
-  console.log(data);
-
   const daysOfWeek = ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
   return (
     <>
