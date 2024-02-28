@@ -8,11 +8,17 @@ function TDiagram({ data, windowWidth }) {
         <div className="x-axis"></div>
         <div className="y-axis y-axis-negative"></div>
 
-        <div className="t_bar t_bar_legend t_noon" style={{ top: `210px` }}>
+        <div
+          className="t_bar t_bar_round t_bar_legend t_noon"
+          style={{ top: `150px` }}
+        >
           <div className="t_legend">t&deg;C,&nbsp;следобед</div>
         </div>
 
-        <div className="t_bar t_bar_legend t_morning" style={{ top: `230px` }}>
+        <div
+          className="t_bar t_bar_round t_bar_legend t_morning"
+          style={{ top: `180px` }}
+        >
           <div className="t_legend">t&deg;C&nbsp; сутрин</div>
         </div>
 
@@ -22,7 +28,7 @@ function TDiagram({ data, windowWidth }) {
             <div key={x.id}>
               {x.morning && (
                 <div
-                  className="t_bar t_morning"
+                  className="t_bar t_bar_round t_morning"
                   style={{
                     bottom: `${x.morning.temperature.metric.value * 10}px`,
                     left: `${xAxisOffsetFraction * 100}%`,
@@ -36,7 +42,7 @@ function TDiagram({ data, windowWidth }) {
 
               {x.noon && (
                 <div
-                  className="t_bar t_noon"
+                  className="t_bar t_bar_round t_noon"
                   style={{
                     bottom: `${x.noon.temperature.metric.value * 10}px`,
                     left: `${xAxisOffsetFraction * 100}%`,

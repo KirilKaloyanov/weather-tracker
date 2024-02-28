@@ -45,6 +45,9 @@
   right: 10px;
   width: 12px;
   height: 12px;
+}
+
+.t_bar_round {
   border-radius: 12px;
 }
 

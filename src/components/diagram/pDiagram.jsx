@@ -8,7 +8,7 @@ function PDiagram({ data, windowWidth }) {
         <div className="x-axis"></div>
         <div className="y-axis"></div>
 
-        <div className="t_bar t_bar_legend  t_morning" style={{ top: `20px` }}>
+        <div className="t_bar t_bar_legend  t_morning" style={{ top: `-10px` }}>
           <div className="t_legend">мм, валежи</div>
         </div>
 
