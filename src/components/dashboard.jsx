@@ -14,6 +14,8 @@ function Dashboard({ data, windowWidthState }) {
   useEffect(() => {
     if (dashboardRef.current && data.length) {
       setVisibleCardsCount(Math.floor(dashboardRef.current.clientWidth / 350)); // each card is 350px
+      setLeftScrollValue(data.length * 350);
+      scrollToIndex(data.length - 1);
     }
   }, [data]);
 
