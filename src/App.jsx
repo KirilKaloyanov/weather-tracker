@@ -25,7 +25,7 @@ function App() {
         <Dashboard data={data} windowWidthState={windowWidthState} />
 
         <TDiagram data={data} windowWidth={windowWidth} />
-        {/* <PDiagram data={data} windowWidth={windowWidth} /> */}
+        <PDiagram data={data} windowWidth={windowWidth} />
 
         <footer className="padding_20 dark_background">
           <center>Cosmos webstudio</center>
