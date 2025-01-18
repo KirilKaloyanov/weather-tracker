@@ -14,7 +14,7 @@ function PDiagram({ data, windowWidth }) {
 
         {data.map((x, index) => {
           const xAxisOffsetFraction = (index + 0.5) / data.length;
-          const value = x.morning.precipitationSummary.past24Hours.metric.value;
+          const value = x.morning?.precipitationSummary.past24Hours.metric.value;
           return (
             <div key={x.id}>
               {x.morning && (
